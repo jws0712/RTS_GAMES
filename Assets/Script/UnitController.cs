@@ -11,7 +11,7 @@ public class UnitController : MonoBehaviour
 
     private void Awake()
     {
-        
+        navMeshAgent = GetComponent<NavMeshAgent>();
     }
 
     public void SelectUnit()
@@ -26,6 +26,7 @@ public class UnitController : MonoBehaviour
 
     public void MoveTo(Vector3 pos)
     {
+        navMeshAgent.speed = 10f;
         navMeshAgent.SetDestination(pos);
     }
 }

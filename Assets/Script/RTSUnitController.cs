@@ -32,6 +32,23 @@ public class RTSUnitController : MonoBehaviour
             SelectUnit(newUnit);
         }
     }
+
+    public void DragSelectUnit(UnitController newUnit)
+    {
+        if(!selectedUnitList.Contains(newUnit))
+        {
+            SelectUnit(newUnit);
+        }
+    }
+
+    public void MoveSelectedUnits(Vector3 end)
+    {
+        for(int i = 0; i < selectedUnitList.Count; i++)
+        {
+            selectedUnitList[i].MoveTo(end);
+        }
+    }
+
     public void DeselectAll()
     {
         for(int i = 0; i < selectedUnitList.Count; i++)
