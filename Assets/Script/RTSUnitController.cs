@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class RTSUnitController : MonoBehaviour
 {
-    [SerializeField] private UnitSpawner unitSpawner = null;
-    private List<UnitController> selectedUnitList = null;
-    public List<UnitController> UnitList { private set; get; }
+    [SerializeField] private UnitSpawner unitSpawner = null; 
+    private List<UnitController> selectedUnitList = null; 
+    public List<UnitController> UnitList { private set; get; } 
 
     private void Awake()
     {
-        selectedUnitList = new List<UnitController>();
+        selectedUnitList = new List<UnitController>(); 
         UnitList = unitSpawner.SpawnUnits();
     }
 
@@ -19,7 +19,7 @@ public class RTSUnitController : MonoBehaviour
         DeselectAll();
 
         SelectUnit(newUnit);
-    }
+    } 
 
     public void ShiftSelectUnit(UnitController newUnit)
     {
@@ -31,7 +31,7 @@ public class RTSUnitController : MonoBehaviour
         {
             SelectUnit(newUnit);
         }
-    }
+    } 
 
     public void DragSelectUnit(UnitController newUnit)
     {
