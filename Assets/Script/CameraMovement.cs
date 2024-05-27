@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    [SerializeField] private float speed;
+    [SerializeField] private float nomalSpeed;
+    [SerializeField] private float shiftSpeed;
+
+    private float speed = default;
     private Vector3 Dir = Vector3.zero;
 
     private void Update()
@@ -13,10 +16,17 @@ public class CameraMovement : MonoBehaviour
         float z = Input.GetAxisRaw("Vertical");
 
         Dir = new Vector3 (x, 0f ,z);
-    }
 
-    private void LateUpdate()
-    {
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            speed = shiftSpeed;
+        }
+        else
+        {
+            speed = nomalSpeed;
+        }
+            
+
         transform.Translate(Dir * speed * Time.deltaTime);
     }
 }

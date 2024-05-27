@@ -336,6 +336,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 537392315}
+  - component: {fileID: 537392316}
   m_Layer: 0
   m_Name: CamHolder
   m_TagString: Untagged
@@ -359,6 +360,19 @@ Transform:
   - {fileID: 963194228}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 225, z: 0}
+--- !u!114 &537392316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537392314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2b77b47e44f0434781c254eb2aa801f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 20
 --- !u!4 &627984232 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9033552107263429853, guid: 4b4ba2c9a1bba1e48ba094924781c677, type: 3}
@@ -907,6 +921,10 @@ PrefabInstance:
     - target: {fileID: 7426460763765679511, guid: 29981836842583c479e7c8bf625d797c, type: 3}
       propertyPath: m_Name
       value: Commender
+      objectReference: {fileID: 0}
+    - target: {fileID: 7426460763765679511, guid: 29981836842583c479e7c8bf625d797c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7426460763766045111, guid: 29981836842583c479e7c8bf625d797c, type: 3}
       propertyPath: m_LocalPosition.x

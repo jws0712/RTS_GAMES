@@ -12,7 +12,7 @@ public class UnitSpawner : MonoBehaviour
 
     public List<UnitController> SpawnUnits() 
     {
-        List<UnitController> unitList = new List<UnitController>(maxUnitCount); //maxUnitCount만큼의 UnitController객체의 리스트를 생성함
+        List<UnitController> unitList = new List<UnitController>(maxUnitCount); //maxUnitCount만큼의 UnitController객체 리스트를 생성함
 
         for(int i = 0; i < maxUnitCount; i++) //소환한 유닛의 개수 만큼 반복
         {
@@ -21,7 +21,7 @@ public class UnitSpawner : MonoBehaviour
             GameObject clone = Instantiate(unitPrefab, pos, Quaternion.identity); //유닛의 클론을 위에서 생성한 랜덤한 위치에 생성
             UnitController unit = clone.GetComponent<UnitController>(); //유닛에서 UnitController를 가지고 오고 unit에 할당함
 
-            unitList.Add(unit); //위에서 생성한 유닛리스트에 넣어줌
+            unitList.Add(unit); //위에서 생성한 유닛리스트에 새로 생성한 유닛을 넣어줌
         }
 
         return unitList; //유닛이 가득찬 유닛리스트를 반환함

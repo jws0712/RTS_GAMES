@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MouseDrag : MonoBehaviour
 {
-    [SerializeField] private RectTransform dragRectangle = null;
+    [SerializeField] private RectTransform dragRectangle = null;  
 
     private Rect dragRect = default;
     private Vector2 start = Vector2.zero;
@@ -48,11 +48,14 @@ public class MouseDrag : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 드래그한 구역을 그려주는 함수
+    /// </summary>
     private void DrawDragRectangle()
     {
-        dragRectangle.position = (start + end) * 0.5f;
+        dragRectangle.position = (start + end) * 0.5f; //start와 end점의 중간점을 구해 드래그한 영역의 중간값을 랙트의 위치로 한다
 
-        dragRectangle.sizeDelta = new Vector2(Mathf.Abs(start.x - end.x), Mathf.Abs(start.y - end.y));
+        dragRectangle.sizeDelta = new Vector2(Mathf.Abs(start.x - end.x), Mathf.Abs(start.y - end.y)); //start와 end를 빼서 드래그한 범위를 구한다
     }
 
     private void CalculateDragRect()

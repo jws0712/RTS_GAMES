@@ -4,72 +4,93 @@ using UnityEngine;
 
 public class RTSUnitController : MonoBehaviour
 {
-    [SerializeField] private UnitSpawner unitSpawner = null; 
-    private List<UnitController> selectedUnitList = null; 
-    public List<UnitController> UnitList { private set; get; } 
+    [SerializeField] private UnitSpawner unitSpawner = null; //UnitSpawner 스크립트
+    private List<UnitController> selectedUnitList = null; //UnitController 타입의 변수를 담을수 있는 리스트
+    public List<UnitController> UnitList { private set; get; } //스크립트 내부에서 값을 변환 시키고 외부에선 값만 참조 할 수 있는 프로퍼티
 
     private void Awake()
     {
-        selectedUnitList = new List<UnitController>(); 
-        UnitList = unitSpawner.SpawnUnits();
+        selectedUnitList = new List<UnitController>(); //객체 리스트 생성
+        UnitList = unitSpawner.SpawnUnits(); //UnitList에 UnitSpawner에서 만든 리스트를 할당해줌
     }
 
+    /// <summary>
+    /// 클릭으로 유닛을 선택 했을때 실행되는 함수
+    /// </summary>
+    /// <param name="newUnit">UnitController타입의 객체</param>
     public void ClickSelectUnit(UnitController newUnit)
     {
-        DeselectAll();
+        DeselectAll(); //selectedUnitList에 들어있던 유닛을 전부 제거함
 
-        SelectUnit(newUnit);
+        SelectUnit(newUnit); //선택한 유닛을 selectedUnitList에 넣어줌
     } 
-
+    /// <summary>
+    /// 왼쪽 쉬프트를 눌러서 유닛을 선택할때 실행되는 함수
+    /// </summary>
+    /// <param name="newUnit">UnitController타입의 객체</param>
     public void ShiftSelectUnit(UnitController newUnit)
     {
-        if(selectedUnitList.Contains(newUnit))
+        if(selectedUnitList.Contains(newUnit)) //리스트에 newUnit있다면 실행
         {
-            DeselectUnit(newUnit);
+            DeselectUnit(newUnit); //선택을 해제시킴
         }
         else
         {
-            SelectUnit(newUnit);
+            SelectUnit(newUnit); //리스트에 newUnit이 없다면 선택함
         }
     } 
-
+     /// <summary>
+     /// 드레그를 해서 유닛을 선택할때 실행되는 함수
+     /// </summary>
+     /// <param name="newUnit"></param>
     public void DragSelectUnit(UnitController newUnit)
     {
-        if(!selectedUnitList.Contains(newUnit))
+        if(!selectedUnitList.Contains(newUnit)) //리스트에 newUnit이 없다면 실행
         {
-            SelectUnit(newUnit);
+            SelectUnit(newUnit); //newUnit을 selectedUnitList에 넣어줌
         }
     }
-
+    /// <summary>
+    /// 선택된 유닛들을 지정한 위치로 이동시킴
+    /// </summary>
+    /// <param name="end">움직일 목적지</param>
     public void MoveSelectedUnits(Vector3 end)
     {
-        for(int i = 0; i < selectedUnitList.Count; i++)
+        for(int i = 0; i < selectedUnitList.Count; i++) //리스트의 길이 만큼 반복함
         {
-            selectedUnitList[i].MoveTo(end);
+            selectedUnitList[i].MoveTo(end); //i번째 유닛을 end로 움직임
         }
     }
-
+    /// <summary>
+    /// 선택된 유닛들을 모두 선택 해제 시킴
+    /// </summary>
     public void DeselectAll()
     {
-        for(int i = 0; i < selectedUnitList.Count; i++)
+        for(int i = 0; i < selectedUnitList.Count; i++) //selectedUnitList의 길이 만큼 반복
         {
-            selectedUnitList[i].DeselectUnit();
+            selectedUnitList[i].DeselectUnit(); //i번째의 유닛을 선택 해제 시킴
         }
 
-        selectedUnitList.Clear();
+        selectedUnitList.Clear(); //리스트의 모든 요소를 제거
     }
-
+    /// <summary>
+    /// 유닛을 선택했을때 실행되는 함수
+    /// </summary>
+    /// <param name="newUnit">UnitController타입의 객체</param>
     private void SelectUnit(UnitController newUnit)
     {
-        newUnit.SelectUnit();
+        newUnit.SelectUnit(); //UnitController 내에 있는 SelectUnit함수 실행
 
-        selectedUnitList.Add(newUnit);
+        selectedUnitList.Add(newUnit); //slectedUnitList리스트에 선택된 유닛을 넣어줌
     }
-
+    /// <summary>
+    /// 유닛이 선택되지 않았을때 실행 되는 함수
+    /// </summary>
+    /// <param name="newUnit">UnitController타입의 객체</param>
     private void DeselectUnit(UnitController newUnit)
     {
-        newUnit.DeselectUnit();
+        newUnit.DeselectUnit(); //UnitController 내에 있는 DeselectUnit함수 실행
 
-        selectedUnitList.Remove(newUnit);
+        selectedUnitList.Remove(newUnit); //selectedUnitList리스트에서 유닛을 뺌
     }
 }
