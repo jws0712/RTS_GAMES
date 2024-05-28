@@ -6,13 +6,13 @@ public class RTSUnitController : MonoBehaviour
 {
     //[SerializeField] private UnitSpawner unitSpawner = null; //UnitSpawner 스크립트
     [SerializeField] private GameObjectFinder gameObjectFinder = null;
-    private List<GameObjectController> selectedUnitList = null; //선택된 유닛을 담는 리스트
+    private List<GameObjectController> selectedObjectList = null; //선택된 유닛을 담는 리스트
     public List<GameObjectController> UnitList { private set; get; } //유닛을 넣어주는 리스트 이고 스크립트 내부에서 값을 변환 시키고 외부에선 값만 참조 할 수 있는 프로퍼티 이다
     public List<GameObjectController> objectList { private set; get; }
 
     private void Awake()
     {
-        selectedUnitList = new List<GameObjectController>(); //객체 리스트 생성
+        selectedObjectList = new List<GameObjectController>(); //객체 리스트 생성
         //UnitList = unitSpawner.SpawnUnits(); //UnitList에 SpawnUnits에서 만들어진 유닛을 추가해줌
         objectList = gameObjectFinder.FindObject(); //objectList에 FindObject에서 찾은 유닛을 넣어줌
     }
@@ -33,7 +33,7 @@ public class RTSUnitController : MonoBehaviour
     /// <param name="newObject">UnitController타입의 객체</param>
     public void ShiftSelectUnit(GameObjectController newObject)
     {
-        if(selectedUnitList.Contains(newObject)) //선택된 유닛을 다시 선택하면 실행
+        if(selectedObjectList.Contains(newObject)) //선택된 유닛을 다시 선택하면 실행
         {
             DeselectUnit(newObject); //선택을 해제시킴
         }
@@ -48,7 +48,7 @@ public class RTSUnitController : MonoBehaviour
      /// <param name="newObject"></param>
     public void DragSelectUnit(GameObjectController newObject)
     {
-        if(!selectedUnitList.Contains(newObject)) //리스트에 newUnit이 없다면 실행
+        if(!selectedObjectList.Contains(newObject)) //리스트에 newUnit이 없다면 실행
         {
             SelectUnit(newObject); //newUnit을 selectedUnitList에 넣어줌
         }
@@ -59,9 +59,12 @@ public class RTSUnitController : MonoBehaviour
     /// <param name="end">움직일 목적지</param>
     public void MoveSelectedUnits(Vector3 end)
     {
-        for(int i = 0; i < selectedUnitList.Count; i++) //리스트의 길이 만큼 반복함
+        for(int i = 0; i < selectedObjectList.Count; i++) //리스트의 길이 만큼 반복함
         {
-            selectedUnitList[i].MoveTo(end); //i번째 유닛을 end로 움직임
+            if (selectedObjectList[i].GetComponent<Unit>() != null)
+            {
+                selectedObjectList[i].GetComponent<Unit>().Move(end); //i번째 유닛을 end로 움직임
+            }
         }
     }
     /// <summary>
@@ -69,12 +72,12 @@ public class RTSUnitController : MonoBehaviour
     /// </summary>
     public void DeselectAll()
     {
-        for(int i = 0; i < selectedUnitList.Count; i++) //selectedUnitList의 길이 만큼 반복
+        for(int i = 0; i < selectedObjectList.Count; i++) //selectedUnitList의 길이 만큼 반복
         {
-            selectedUnitList[i].DeselectUnit(); //i번째의 유닛을 선택 해제 시킴
+            selectedObjectList[i].DeselectUnit(); //i번째의 유닛을 선택 해제 시킴
         }
 
-        selectedUnitList.Clear(); //리스트의 모든 요소를 제거
+        selectedObjectList.Clear(); //리스트의 모든 요소를 제거
     }
     /// <summary>
     /// 유닛을 선택했을때 실행되는 함수
@@ -84,7 +87,7 @@ public class RTSUnitController : MonoBehaviour
     {
         newObject.SelectUnit(); //UnitController 내에 있는 SelectUnit함수 실행
 
-        selectedUnitList.Add(newObject); //slectedUnitList리스트에 선택된 유닛을 넣어줌
+        selectedObjectList.Add(newObject); //slectedUnitList리스트에 선택된 유닛을 넣어줌
     }
     /// <summary>
     /// 유닛이 선택되지 않았을때 실행 되는 함수
@@ -94,6 +97,6 @@ public class RTSUnitController : MonoBehaviour
     {
         newObject.DeselectUnit(); //UnitController 내에 있는 DeselectUnit함수 실행
 
-        selectedUnitList.Remove(newObject); //selectedUnitList리스트에서 유닛을 뺌
+        selectedObjectList.Remove(newObject); //selectedUnitList리스트에서 유닛을 뺌
     }
 }

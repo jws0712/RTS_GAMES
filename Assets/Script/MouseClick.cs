@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MouseClick : MonoBehaviour
 {
-    [SerializeField] private LayerMask layerUnit = default;
+    [SerializeField] private LayerMask objectLayer = default;
     [SerializeField] private LayerMask layerGround = default;
     private Camera mainCamera = null;
     private RTSUnitController rtsUnitController = null;
@@ -24,9 +24,9 @@ public class MouseClick : MonoBehaviour
 
             Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition); //3차원 공간에 마우스 클릭한 위치에 레이를 쏨
 
-            if(Physics.Raycast(ray, out hit, Mathf.Infinity, layerUnit)) //레이가 유닛에 맞았을때 실행
+            if(Physics.Raycast(ray, out hit, Mathf.Infinity, objectLayer)) //레이가 유닛에 맞았을때 실행
             {
-                if(hit.transform.GetComponent<GameObjectController>() == null) return; //레이를 맞은 오브젝트가 UnitController를 가지고 있지 않으면 리턴함
+                if (hit.transform.GetComponent<GameObjectController>() == null) return; //레이를 맞은 오브젝트가 UnitController를 가지고 있지 않으면 리턴함
 
                 if (Input.GetKey(KeyCode.LeftShift))
                 {
