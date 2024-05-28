@@ -374,8 +374,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nomalSpeed: 30
   shiftSpeed: 60
-  minPos: {fileID: 0}
-  maxPos: {fileID: 0}
+  minPos: {fileID: 1734518069}
+  maxPos: {fileID: 2139411195}
 --- !u!4 &627984232 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9033552107263429853, guid: 4b4ba2c9a1bba1e48ba094924781c677, type: 3}
@@ -1488,7 +1488,7 @@ SceneRoots:
   - {fileID: 1124934512}
   - {fileID: 2034214765}
   - {fileID: 654152518}
-  - {fileID: 1100701513}
   - {fileID: 1290897460}
   - {fileID: 2139411195}
   - {fileID: 1734518069}
+  - {fileID: 1100701513}

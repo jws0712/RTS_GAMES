@@ -26,15 +26,15 @@ public class MouseClick : MonoBehaviour
 
             if(Physics.Raycast(ray, out hit, Mathf.Infinity, layerUnit)) //레이가 유닛에 맞았을때 실행
             {
-                if(hit.transform.GetComponent<UnitController>() == null) return; //레이를 맞은 오브젝트가 UnitController를 가지고 있지 않으면 리턴함
+                if(hit.transform.GetComponent<GameObjectController>() == null) return; //레이를 맞은 오브젝트가 UnitController를 가지고 있지 않으면 리턴함
 
                 if (Input.GetKey(KeyCode.LeftShift))
                 {
-                    rtsUnitController.ShiftSelectUnit(hit.transform.GetComponent<UnitController>()); //쉬프트를 누른채로 클릭했을때 ShiftSelectUnit을 실행 newUnit에 레이에 맞은 오브젝트의 UnitController를 가져옴
+                    rtsUnitController.ShiftSelectUnit(hit.transform.GetComponent<GameObjectController>()); //쉬프트를 누른채로 클릭했을때 ShiftSelectUnit을 실행 newUnit에 레이에 맞은 오브젝트의 UnitController를 가져옴
                 }
                 else
                 {
-                    rtsUnitController.ClickSelectUnit(hit.transform.GetComponent<UnitController>());  //클릭했을때 ShiftSelectUnit을 실행 newUnit에 레이에 맞은 오브젝트의 UnitController를 가져옴
+                    rtsUnitController.ClickSelectUnit(hit.transform.GetComponent<GameObjectController>());  //클릭했을때 ShiftSelectUnit을 실행 newUnit에 레이에 맞은 오브젝트의 UnitController를 가져옴
                 }
             }
 

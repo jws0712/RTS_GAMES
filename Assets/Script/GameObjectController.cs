@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class UnitController : MonoBehaviour
+public class GameObjectController : MonoBehaviour
 {
     [SerializeField] private GameObject unitMarker = null; //유닛이 선택됐을 때를 표시하는 마커
     private NavMeshAgent navMeshAgent = null; //유닛 오브젝트내에 있는 에이전트

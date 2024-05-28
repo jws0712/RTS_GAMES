@@ -4,50 +4,53 @@ using UnityEngine;
 
 public class RTSUnitController : MonoBehaviour
 {
-    [SerializeField] private UnitSpawner unitSpawner = null; //UnitSpawner 스크립트
-    private List<UnitController> selectedUnitList = null; //UnitController 타입의 변수를 담을수 있는 리스트
-    public List<UnitController> UnitList { private set; get; } //스크립트 내부에서 값을 변환 시키고 외부에선 값만 참조 할 수 있는 프로퍼티
+    //[SerializeField] private UnitSpawner unitSpawner = null; //UnitSpawner 스크립트
+    [SerializeField] private GameObjectFinder gameObjectFinder = null;
+    private List<GameObjectController> selectedUnitList = null; //선택된 유닛을 담는 리스트
+    public List<GameObjectController> UnitList { private set; get; } //유닛을 넣어주는 리스트 이고 스크립트 내부에서 값을 변환 시키고 외부에선 값만 참조 할 수 있는 프로퍼티 이다
+    public List<GameObjectController> objectList { private set; get; }
 
     private void Awake()
     {
-        selectedUnitList = new List<UnitController>(); //객체 리스트 생성
-        UnitList = unitSpawner.SpawnUnits(); //UnitList에 UnitSpawner에서 만든 리스트를 할당해줌
+        selectedUnitList = new List<GameObjectController>(); //객체 리스트 생성
+        //UnitList = unitSpawner.SpawnUnits(); //UnitList에 SpawnUnits에서 만들어진 유닛을 추가해줌
+        objectList = gameObjectFinder.FindObject(); //objectList에 FindObject에서 찾은 유닛을 넣어줌
     }
 
     /// <summary>
     /// 클릭으로 유닛을 선택 했을때 실행되는 함수
     /// </summary>
-    /// <param name="newUnit">UnitController타입의 객체</param>
-    public void ClickSelectUnit(UnitController newUnit)
+    /// <param name="newOject">UnitController타입의 객체</param>
+    public void ClickSelectUnit(GameObjectController newOject)
     {
         DeselectAll(); //selectedUnitList에 들어있던 유닛을 전부 제거함
 
-        SelectUnit(newUnit); //선택한 유닛을 selectedUnitList에 넣어줌
+        SelectUnit(newOject); //선택한 유닛을 selectedUnitList에 넣어줌
     } 
     /// <summary>
     /// 왼쪽 쉬프트를 눌러서 유닛을 선택할때 실행되는 함수
     /// </summary>
-    /// <param name="newUnit">UnitController타입의 객체</param>
-    public void ShiftSelectUnit(UnitController newUnit)
+    /// <param name="newObject">UnitController타입의 객체</param>
+    public void ShiftSelectUnit(GameObjectController newObject)
     {
-        if(selectedUnitList.Contains(newUnit)) //리스트에 newUnit있다면 실행
+        if(selectedUnitList.Contains(newObject)) //선택된 유닛을 다시 선택하면 실행
         {
-            DeselectUnit(newUnit); //선택을 해제시킴
+            DeselectUnit(newObject); //선택을 해제시킴
         }
-        else
+        else //새로운 유닛을 선택하면 실행
         {
-            SelectUnit(newUnit); //리스트에 newUnit이 없다면 선택함
+            SelectUnit(newObject); //유닛을 선택함
         }
     } 
      /// <summary>
      /// 드레그를 해서 유닛을 선택할때 실행되는 함수
      /// </summary>
-     /// <param name="newUnit"></param>
-    public void DragSelectUnit(UnitController newUnit)
+     /// <param name="newObject"></param>
+    public void DragSelectUnit(GameObjectController newObject)
     {
-        if(!selectedUnitList.Contains(newUnit)) //리스트에 newUnit이 없다면 실행
+        if(!selectedUnitList.Contains(newObject)) //리스트에 newUnit이 없다면 실행
         {
-            SelectUnit(newUnit); //newUnit을 selectedUnitList에 넣어줌
+            SelectUnit(newObject); //newUnit을 selectedUnitList에 넣어줌
         }
     }
     /// <summary>
@@ -76,21 +79,21 @@ public class RTSUnitController : MonoBehaviour
     /// <summary>
     /// 유닛을 선택했을때 실행되는 함수
     /// </summary>
-    /// <param name="newUnit">UnitController타입의 객체</param>
-    private void SelectUnit(UnitController newUnit)
+    /// <param name="newObject">UnitController타입의 객체</param>
+    private void SelectUnit(GameObjectController newObject)
     {
-        newUnit.SelectUnit(); //UnitController 내에 있는 SelectUnit함수 실행
+        newObject.SelectUnit(); //UnitController 내에 있는 SelectUnit함수 실행
 
-        selectedUnitList.Add(newUnit); //slectedUnitList리스트에 선택된 유닛을 넣어줌
+        selectedUnitList.Add(newObject); //slectedUnitList리스트에 선택된 유닛을 넣어줌
     }
     /// <summary>
     /// 유닛이 선택되지 않았을때 실행 되는 함수
     /// </summary>
-    /// <param name="newUnit">UnitController타입의 객체</param>
-    private void DeselectUnit(UnitController newUnit)
+    /// <param name="newObject">UnitController타입의 객체</param>
+    private void DeselectUnit(GameObjectController newObject)
     {
-        newUnit.DeselectUnit(); //UnitController 내에 있는 DeselectUnit함수 실행
+        newObject.DeselectUnit(); //UnitController 내에 있는 DeselectUnit함수 실행
 
-        selectedUnitList.Remove(newUnit); //selectedUnitList리스트에서 유닛을 뺌
+        selectedUnitList.Remove(newObject); //selectedUnitList리스트에서 유닛을 뺌
     }
 }

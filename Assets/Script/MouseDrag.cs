@@ -93,7 +93,7 @@ public class MouseDrag : MonoBehaviour
     /// </summary>
     private void SelectUnits()
     {
-        foreach(UnitController unit in rtsUnitController.UnitList) //UnitList에 요소가 있는 수만큼 만복
+        foreach(GameObjectController unit in rtsUnitController.objectList) //UnitList에 요소가 있는 수만큼 만복
         {
             if (dragRect.Contains(mainCamera.WorldToScreenPoint(unit.transform.position))) //랙트 범위 내에 유닛이 있다면 실행
             {

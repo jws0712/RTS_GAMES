@@ -8,7 +8,7 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] private float nomalSpeed = default;
     [SerializeField] private float shiftSpeed = default;
 
-    [Header("WorldBord")]
+    [Header("WorldBorad")]
     [SerializeField] private Transform minPos = null;
     [SerializeField] private Transform maxPos = null;
 
@@ -23,7 +23,7 @@ public class CameraMovement : MonoBehaviour
 
     private void LateUpdate()
     {
-        WorldBord();
+        WorldBorad();
     }
 
     /// <summary>
@@ -58,7 +58,7 @@ public class CameraMovement : MonoBehaviour
     /// <summary>
     /// 카메라 이동의 제한을 두는 월드보드를 만드는 함수
     /// </summary>
-    private void WorldBord()
+    private void WorldBorad()
     {
         float posX = transform.position.x;
         float posZ = transform.position.z;
