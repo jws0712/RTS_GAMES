@@ -7,7 +7,7 @@ public class RTSUnitController : MonoBehaviour
     //[SerializeField] private UnitSpawner unitSpawner = null; //UnitSpawner 스크립트
     [SerializeField] private GameObjectFinder gameObjectFinder = null;
     private List<GameObjectController> selectedObjectList = null; //선택된 유닛을 담는 리스트
-    public List<GameObjectController> UnitList { private set; get; } //유닛을 넣어주는 리스트 이고 스크립트 내부에서 값을 변환 시키고 외부에선 값만 참조 할 수 있는 프로퍼티 이다
+
     public List<GameObjectController> objectList { private set; get; }
 
     private void Awake()

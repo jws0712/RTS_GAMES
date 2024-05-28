@@ -11,14 +11,14 @@ public class GameObjectController : MonoBehaviour
     /// <summary>
     /// 유닛이 선택됐을 때 실행 되는 함수
     /// </summary>
-    public void SelectUnit()
+    public virtual void SelectUnit()
     {
         unitMarker.SetActive(true); //마커를 켜준다
     }
     /// <summary>
     /// 유닛이 선택되지 않았을 때 실행 되는 함수
     /// </summary>
-    public void DeselectUnit()
+    public virtual void DeselectUnit()
     {
         unitMarker.SetActive(false); //마커를 꺼준다
     }
