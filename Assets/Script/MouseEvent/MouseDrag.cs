@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class MouseDrag : MonoBehaviour
 {
@@ -23,6 +24,8 @@ public class MouseDrag : MonoBehaviour
 
     private void Update()
     {
+
+
         if(Input.GetMouseButtonDown(0))
         {
             start  = Input.mousePosition; //처음 클릭했을때 위치
@@ -93,6 +96,7 @@ public class MouseDrag : MonoBehaviour
     /// </summary>
     private void SelectUnits()
     {
+
         for(int i = 0; i < rtsUnitController.objectList.Count; i++) //UnitList에 요소가 있는 수만큼 만복
         {
             if (dragRect.Contains(mainCamera.WorldToScreenPoint(rtsUnitController.objectList[i].transform.position))) //랙트 범위 내에 유닛이 있다면 실행

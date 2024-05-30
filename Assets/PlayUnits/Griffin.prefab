@@ -402,6 +402,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitMarker: {fileID: 2013303294143197279}
+  unitData: {fileID: 11400000, guid: eacffe3df21da9843a6803709d061562, type: 2}
 --- !u!65 &956556240818370
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c72ee0fe3c6bb4e4aad0de6330240599, type: 3}
   m_Name: Magic
   m_EditorClassIdentifier: 
-  damage: 0
-  speed: 0
-  maxHP: 0
-  spawnSpeed: 0
-  attackDistance: 0
+  damage: 10
+  speed: 10
+  maxHP: 10
+  spawnTime: 0
+  attackDistance: 10

@@ -344,6 +344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitMarker: {fileID: 3625992685021908063}
+  unitData: {fileID: 11400000, guid: 84d60d66bf3ed5a4f91b96e23fe1679a, type: 2}
 --- !u!136 &4220742463575819997
 CapsuleCollider:
   m_ObjectHideFlags: 0

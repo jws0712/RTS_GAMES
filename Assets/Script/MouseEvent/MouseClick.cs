@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class MouseClick : MonoBehaviour
 {
@@ -20,6 +21,11 @@ public class MouseClick : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0)) //왼쪽 클릭을 했을때
         {
+            if (EventSystem.current.IsPointerOverGameObject())
+            {
+                return;
+            }
+
             RaycastHit hit;
 
             Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition); //3차원 공간에 마우스 클릭한 위치에 레이를 쏨

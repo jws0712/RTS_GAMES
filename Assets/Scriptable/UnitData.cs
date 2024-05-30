@@ -14,8 +14,8 @@ public class UnitData : ScriptableObject
     [SerializeField] private float maxHP = default;
     public float MaxHP { get { return damage; } }
 
-    [SerializeField] private float spawnSpeed = default;
-    public float SpawnSpeed { get { return damage; } }
+    [SerializeField] private float spawnTime = default;
+    public float SpawnTime { get { return damage; } }
 
     [SerializeField] private float attackDistance = default;
     public float AttackDistance { get { return damage; } }
