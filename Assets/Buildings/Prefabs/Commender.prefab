@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4958784289618827495
 Transform:
   m_ObjectHideFlags: 0
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &6943874303504052723
+--- !u!1 &3481301690694379004
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,25 +92,25 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2413384063579071658}
-  m_Layer: 6
+  - component: {fileID: 2259630974977284490}
+  m_Layer: 0
   m_Name: SpawnPosition
   m_TagString: Untagged
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2413384063579071658
+--- !u!4 &2259630974977284490
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6943874303504052723}
+  m_GameObject: {fileID: 3481301690694379004}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 5.8}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.00000002019203, y: -0.38268343, z: 0.000000008363812, w: 0.92387956}
+  m_LocalPosition: {x: -0.21, y: -0, z: 6.41}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7426460763766045111}
@@ -133,7 +133,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: f4994d0c9178c2347a9cd5f3b834c962, type: 3}
       propertyPath: m_TagString
-      value: Buliding
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f4994d0c9178c2347a9cd5f3b834c962, type: 3}
       propertyPath: m_LocalPosition.x
@@ -183,10 +183,10 @@ PrefabInstance:
       addedObject: {fileID: 8498659665255592062}
     - targetCorrespondingSourceObject: {fileID: 400000, guid: f4994d0c9178c2347a9cd5f3b834c962, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4958784289618827495}
+      addedObject: {fileID: 2259630974977284490}
     - targetCorrespondingSourceObject: {fileID: 400000, guid: f4994d0c9178c2347a9cd5f3b834c962, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2413384063579071658}
+      addedObject: {fileID: 4958784289618827495}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 100000, guid: f4994d0c9178c2347a9cd5f3b834c962, type: 3}
       insertIndex: -1
@@ -214,6 +214,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitMarker: {fileID: 919278837489222061}
   buildingUiPenal: {fileID: 0}
+  maxHp: 0
 --- !u!65 &4777360764851906182
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -26,6 +26,8 @@ public class Unit : GameObjectController
     //public variable
     public UnitData UnitData { get { return unitData; } }
 
+    public float SpawnTime { get { return spawnTime; } }
+
 
     private void Awake()
     {

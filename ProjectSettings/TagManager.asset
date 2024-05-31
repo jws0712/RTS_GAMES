@@ -5,8 +5,14 @@ TagManager:
   serializedVersion: 2
   tags:
   - Mineral
-  - Unit
-  - Buliding
+  - Commender
+  - Animal
+  - ArcherTower
+  - Barrack
+  - blacksmith
+  - Factory
+  - HumanHouse
+  - MagicPot
   layers:
   - Default
   - TransparentFX
