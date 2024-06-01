@@ -56,12 +56,12 @@ public class Unit : GameObjectController
     public override void SelectUnit()
     {
         base.SelectUnit();
-        //unitUiPanel.SetActive(true);
+        unitUiPanel.SetActive(true);
     }
 
     public override void DeselectUnit()
     {
         base.DeselectUnit();
-        //unitUiPanel.SetActive(false);
+        unitUiPanel.SetActive(false);
     }
 }

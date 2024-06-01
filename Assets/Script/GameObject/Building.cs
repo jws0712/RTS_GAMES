@@ -40,7 +40,6 @@ public class Building : GameObjectController
         if (spawnUnitList.Count < maxArraySize)
         {
             spawnUnitList.Add(spawnUnit);
-            Debug.Log("유닛추가!");
         }
 
         StartCoroutine(Co_UnitSpawnLogic(spawnUnit, data));
@@ -48,14 +47,11 @@ public class Building : GameObjectController
 
     private IEnumerator Co_UnitSpawnLogic(GameObject spawnUnit, UnitData data)
     {
-
-
-        while (spawnUnitList.Count != 0) //리스트가 0이 될떄까지 계속 돌아감
+        while (spawnUnitList.Count != 0)
         {
-            if (spawnUnitList[0] != null && isSpawn == false) //리스트의 처음 부분에 오브젝트가 있고 스폰이 다 끝났을떄
+            if (spawnUnitList[0] != null && isSpawn == false)
             {
                 isSpawn = true;
-                Debug.Log("유닛소환시작!");
                 unitSpawnTime = data.SpawnTime;
 
                 while (true)
@@ -70,7 +66,6 @@ public class Building : GameObjectController
                         timeSlider.value = 0;
                         Instantiate(spawnUnit, buildingSpawnPos.position, Quaternion.identity);
                         spawnUnitList.Remove(spawnUnit);
-                        Debug.Log("소환완료");
 
                         isSpawn = false;
                         break;
@@ -80,6 +75,5 @@ public class Building : GameObjectController
             }
             yield return null;
         }
-
     }
 }

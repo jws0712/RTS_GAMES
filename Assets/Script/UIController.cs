@@ -50,7 +50,6 @@ public class UIController : MonoBehaviour
 
     private Building building = null;
 
-
     private void Awake()
     {
         building = GetComponent<Building>();

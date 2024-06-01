@@ -1396,7 +1396,7 @@ RectTransform:
   m_Father: {fileID: 2112442670715668586}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3282,25 +3282,25 @@ MonoBehaviour:
   workerGameObject: {fileID: 2027113059556466436, guid: a9fca3a902f2d9148949fc0834313b5a, type: 3}
   workerUnitData: {fileID: 11400000, guid: 47f44c84e9fd60b4693b851862799459, type: 2}
   magic: {fileID: 4013791418679307194}
-  magicGameObject: {fileID: 5238954422882536086, guid: b3aa9b3b2bf72184091a2727e033d6ce, type: 3}
+  magicGameObject: {fileID: 5080754772769231822, guid: b3aa9b3b2bf72184091a2727e033d6ce, type: 3}
   magicUnitData: {fileID: 11400000, guid: 5e71f779fdd23f447b333b8bd7bdbc44, type: 2}
   archer: {fileID: 8196501356967835184}
-  archerGameObject: {fileID: 2547597279034340276, guid: 05ecff57ada72304aa3dbdb07edadbe8, type: 3}
+  archerGameObject: {fileID: 2818789958010667420, guid: 05ecff57ada72304aa3dbdb07edadbe8, type: 3}
   archerUnitData: {fileID: 11400000, guid: 39f91d2f7ab64c84c97c2b3ef9ebf3d2, type: 2}
   spear: {fileID: 4685947495925437916}
-  spearGameObject: {fileID: 2876704421521324755, guid: 2214a390e49e1264c93ee202294cbbe3, type: 3}
+  spearGameObject: {fileID: 3300456155692540346, guid: 2214a390e49e1264c93ee202294cbbe3, type: 3}
   spearUnitData: {fileID: 11400000, guid: b341c6dc19ad3cc4dbca35554b9841eb, type: 2}
   griffin: {fileID: 64864569441882167}
-  griffinGameObject: {fileID: 6635308510560341827, guid: 2636f99b1fc0f144d9f4508acbe6ae62, type: 3}
+  griffinGameObject: {fileID: 7159196800257377343, guid: 2636f99b1fc0f144d9f4508acbe6ae62, type: 3}
   griffinUnitData: {fileID: 11400000, guid: eacffe3df21da9843a6803709d061562, type: 2}
   knight: {fileID: 3906239877824236323}
-  knightGameObject: {fileID: 3822343614910112589, guid: 1b994d29d1bb1ad45845593eae5a2985, type: 3}
+  knightGameObject: {fileID: 3827817525308955179, guid: 1b994d29d1bb1ad45845593eae5a2985, type: 3}
   kngihtUnitData: {fileID: 11400000, guid: 84d60d66bf3ed5a4f91b96e23fe1679a, type: 2}
   horse: {fileID: 2470038045305928255}
-  horseGameObject: {fileID: 1484826752040454781, guid: 3eb5794b70e35224fba5ce598307aa8a, type: 3}
+  horseGameObject: {fileID: 3502448408947058709, guid: 3eb5794b70e35224fba5ce598307aa8a, type: 3}
   horseUnitData: {fileID: 11400000, guid: 7dfb4275f0455644e9647da5b1863306, type: 2}
   tank: {fileID: 3492842549161731834}
-  tankGameObject: {fileID: 8769688030462716359, guid: a311217cdac679641b55a00b2c4b7d53, type: 3}
+  tankGameObject: {fileID: 4621893891784464056, guid: a311217cdac679641b55a00b2c4b7d53, type: 3}
   tankUnitData: {fileID: 11400000, guid: fd883a8f669655c4ea0d3db19c4b953a, type: 2}
 --- !u!4 &7426460763766045111 stripped
 Transform:
