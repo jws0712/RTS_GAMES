@@ -15,6 +15,10 @@ public class RTSUnitController : MonoBehaviour
     {
         selectedObjectList = new List<GameObjectController>(); //객체 리스트 생성
         //UnitList = unitSpawner.SpawnUnits(); //UnitList에 SpawnUnits에서 만들어진 유닛을 추가해줌
+    }
+
+    private void Update()
+    {
         objectList = gameObjectFinder.FindObject(); //objectList에 FindObject에서 찾은 유닛을 넣어줌
     }
 

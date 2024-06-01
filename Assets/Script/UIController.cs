@@ -1,89 +1,77 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+
 public class UIController : MonoBehaviour
 {
-    [Header("ButtonInfo")]
+
     [Space(10f)]
     [SerializeField] private Button worker = null;
     [SerializeField] private GameObject workerGameObject = null;
+    [SerializeField] private UnitData workerUnitData = null;
     [Space(10f)]
     [SerializeField] private Button magic = null;
     [SerializeField] private GameObject magicGameObject = null;
+    [SerializeField] private UnitData magicUnitData = null;
+
     [Space(10f)]
     [SerializeField] private Button archer = null;
     [SerializeField] private GameObject archerGameObject = null;
+    [SerializeField] private UnitData archerUnitData = null;
+
     [Space(10f)]
     [SerializeField] private Button spear = null;
     [SerializeField] private GameObject spearGameObject = null;
+    [SerializeField] private UnitData spearUnitData = null;
+
     [Space(10f)]
     [SerializeField] private Button griffin = null;
     [SerializeField] private GameObject griffinGameObject = null;
+    [SerializeField] private UnitData griffinUnitData = null;
+
     [Space(10f)]
     [SerializeField] private Button knight = null;
     [SerializeField] private GameObject knightGameObject = null;
+    [SerializeField] private UnitData kngihtUnitData = null;
+
     [Space(10f)]
     [SerializeField] private Button horse = null;
     [SerializeField] private GameObject horseGameObject = null;
+    [SerializeField] private UnitData horseUnitData = null;
+
     [Space(10f)]
     [SerializeField] private Button tank = null;
     [SerializeField] private GameObject tankGameObject = null;
+    [SerializeField] private UnitData tankUnitData = null;
+
+    private Building building = null;
+
+
+    private void Awake()
+    {
+        building = GetComponent<Building>();
+    }
 
     private void Start()
     {
-        worker.onClick.AddListener(() => SpawnWorker(workerGameObject));
-        archer.onClick.AddListener(() => SpawnArcher(archerGameObject));
-        magic.onClick.AddListener(() => SpawnMagic(magicGameObject));
-        spear.onClick.AddListener(() => SpawnSpear(spearGameObject));
-        horse.onClick.AddListener(() => SpawnHorse(horseGameObject));
-        griffin.onClick.AddListener(() => SpawnGriffin(griffinGameObject));
-        tank.onClick.AddListener(() => SpawnTank(tankGameObject));
-        knight.onClick.AddListener(() => SpawnKnight(knightGameObject));
+        worker.onClick.AddListener(() => SpawnUnit(workerGameObject, workerUnitData));
+        archer.onClick.AddListener(() => SpawnUnit(archerGameObject, archerUnitData));
+        magic.onClick.AddListener(() => SpawnUnit(magicGameObject, magicUnitData));
+        spear.onClick.AddListener(() => SpawnUnit(spearGameObject, spearUnitData));
+        horse.onClick.AddListener(() => SpawnUnit(horseGameObject, horseUnitData));
+        griffin.onClick.AddListener(() => SpawnUnit(griffinGameObject, griffinUnitData));
+        tank.onClick.AddListener(() => SpawnUnit(tankGameObject, tankUnitData));
+        knight.onClick.AddListener(() => SpawnUnit(knightGameObject, kngihtUnitData));
     }
 
-    private void SpawnWorker(GameObject gameObject)
+    private void SpawnUnit(GameObject gameObject, UnitData data)
     {
-        
+        building.AddSpawnUnit(gameObject, data);
+
+        Debug.Log("스폰실행!");
     }
-
-    private void SpawnArcher(GameObject gameObject)
-    {
-
-    }
-
-    private void SpawnMagic(GameObject gameObject)
-    {
-
-    }
-
-    private void SpawnSpear(GameObject gameObject)
-    {
-
-    }
-
-    private void SpawnHorse(GameObject gameObject)
-    {
-
-    }
-
-    private void SpawnGriffin(GameObject gameObject)
-    {
-
-    }
-
-    private void SpawnTank(GameObject gameObject)
-    {
-
-    }
-
-    private void SpawnKnight(GameObject gameObject)
-    {
-
-    }
-
-
-
-
 }

@@ -20,22 +20,12 @@ public class Unit : GameObjectController
     private float damage = default;
     private float speed = default;
     private float maxHP = default;
-    private float spawnTime = default;
     private float attackDistance = default;
-
-    //public variable
-    public UnitData UnitData { get { return unitData; } }
-
-    public float SpawnTime { get { return spawnTime; } }
 
 
     private void Awake()
     {
         navMeshAgent = GetComponent<NavMeshAgent>(); //에이전트를 가져옴
-    }
-
-    private void Start()
-    {
         SetObjectData();
     }
 
@@ -47,8 +37,9 @@ public class Unit : GameObjectController
         damage = unitData.Damage;
         speed = unitData.Speed;
         maxHP = unitData.MaxHP;
-        spawnTime = unitData.SpawnTime;
         attackDistance = unitData.AttackDistance;
+
+        Debug.Log("실행");
     }
 
 
@@ -65,12 +56,12 @@ public class Unit : GameObjectController
     public override void SelectUnit()
     {
         base.SelectUnit();
-        unitUiPanel.SetActive(true);
+        //unitUiPanel.SetActive(true);
     }
 
     public override void DeselectUnit()
     {
         base.DeselectUnit();
-        unitUiPanel.SetActive(false);
+        //unitUiPanel.SetActive(false);
     }
 }
