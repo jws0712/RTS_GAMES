@@ -70,7 +70,5 @@ public class UIController : MonoBehaviour
     private void SpawnUnit(GameObject gameObject, UnitData data)
     {
         building.AddSpawnUnit(gameObject, data);
-
-        Debug.Log("스폰실행!");
     }
 }

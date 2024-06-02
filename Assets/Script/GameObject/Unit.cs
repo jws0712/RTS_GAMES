@@ -14,7 +14,7 @@ public class Unit : GameObjectController
 
 
     //Components 
-    private NavMeshAgent navMeshAgent = null; //유닛 오브젝트내에 있는 에이전트
+    public NavMeshAgent navMeshAgent = null; //유닛 오브젝트내에 있는 에이전트
 
     //private variable
     private float damage = default;
@@ -22,10 +22,13 @@ public class Unit : GameObjectController
     private float maxHP = default;
     private float attackDistance = default;
 
-
-    private void Awake()
+    private void OnEnable()
     {
-        navMeshAgent = GetComponent<NavMeshAgent>(); //에이전트를 가져옴
+        if (navMeshAgent == null)
+        {
+            navMeshAgent = GetComponent<NavMeshAgent>(); //에이전트를 가져옴            
+        }
+
         SetObjectData();
     }
 
@@ -38,8 +41,6 @@ public class Unit : GameObjectController
         speed = unitData.Speed;
         maxHP = unitData.MaxHP;
         attackDistance = unitData.AttackDistance;
-
-        Debug.Log("실행");
     }
 
 
@@ -49,7 +50,7 @@ public class Unit : GameObjectController
     /// <param name="pos">유닛의 목적지</param>
     public void Move(Vector3 pos)
     {
-        navMeshAgent.speed = 10f; //유닛의 속도
+        navMeshAgent.speed = speed; //유닛의 속도
         navMeshAgent.SetDestination(pos); //유닛의 목적지를 설정함
     }
 
