@@ -11,7 +11,7 @@ public class Unit : GameObjectController
 
     [SerializeField] private UnitData unitData = null;
 
-
+    
 
     //Components 
     public NavMeshAgent navMeshAgent = null; //유닛 오브젝트내에 있는 에이전트
@@ -21,6 +21,7 @@ public class Unit : GameObjectController
     private float speed = default;
     private float maxHP = default;
     private float attackDistance = default;
+    private Sprite unitIcon = null;
 
     private void OnEnable()
     {
@@ -41,6 +42,7 @@ public class Unit : GameObjectController
         speed = unitData.Speed;
         maxHP = unitData.MaxHP;
         attackDistance = unitData.AttackDistance;
+        unitIcon = unitData.UnitIcon;
     }
 
 

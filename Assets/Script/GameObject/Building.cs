@@ -10,18 +10,22 @@ public class Building : GameObjectController
     [SerializeField] private GameObject buildingUiPenal = null;
     [SerializeField] private Transform buildingSpawnPos = null;
     [SerializeField] private Transform unitPos = null;
-    [SerializeField] private float maxHp = default;
+    [SerializeField] private Sprite OriginIcon = null;
+    //[SerializeField] private float maxHp = default;
 
     [Header("BuildingUI")]
     [SerializeField] private Slider timeSlider = null;
+    public GameObject[] unitSpawnIcon = null;
+    public List<GameObject> spawnUnitList = new List<GameObject>(maxArraySize);
 
     //private variable
-    private const int maxArraySize = 6;
+    private const int maxArraySize = 5;
     private float unitSpawnTime = default;
     private float time = 0;
-    private List<GameObject> spawnUnitList = new List<GameObject>(maxArraySize);
     private bool isSpawn = false;
-    
+
+    public int MaxArraySize { get { return maxArraySize; } }
+
     /// <summary>
     /// 유닛을 선택할때 실행되는 함수
     /// </summary>
@@ -103,4 +107,12 @@ public class Building : GameObjectController
             yield return null; //한 프래임 쉼
         }
     }
+
+    //public void SetUnitIcon(UnitData data)
+    //{
+    //    for (int i = 0; i < spawnUnitList.Count; i++)
+    //    {
+    //        unitSpawnIcon[i].GetComponent<Image>().sprite = data.UnitIcon;
+    //    }
+    //}
 }

@@ -5,6 +5,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "UnitData", menuName = "ScriptableObject/UnitData", order = int.MaxValue)]
 public class UnitData : ScriptableObject
 {
+    [SerializeField] private Sprite unitIcon = null;
+    public Sprite UnitIcon { get { return unitIcon; } }
+
     [SerializeField] private float damage = default;
     public float Damage {  get { return damage; } }
 
