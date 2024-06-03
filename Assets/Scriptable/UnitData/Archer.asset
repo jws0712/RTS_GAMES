@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c72ee0fe3c6bb4e4aad0de6330240599, type: 3}
   m_Name: Archer
   m_EditorClassIdentifier: 
+  unitIcon: {fileID: -755029722, guid: ce266618fc3aaab4795283a2ecba4239, type: 3}
   damage: 10
   speed: 10
   maxHP: 10

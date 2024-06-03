@@ -2452,7 +2452,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4563731885757396, guid: 10dee972df12121478097dffc9d265b4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -25.43
+      value: -23.55
       objectReference: {fileID: 0}
     - target: {fileID: 4563731885757396, guid: 10dee972df12121478097dffc9d265b4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2554,7 +2554,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 2027113059556466436}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 1
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -2609,6 +2609,7 @@ MonoBehaviour:
   unitMarker: {fileID: 3376750707475845704}
   unitUiPanel: {fileID: 3315613237285654224}
   unitData: {fileID: 11400000, guid: 47f44c84e9fd60b4693b851862799459, type: 2}
+  navMeshAgent: {fileID: 0}
 --- !u!4 &2032533669715890874 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4563731885757396, guid: 10dee972df12121478097dffc9d265b4, type: 3}

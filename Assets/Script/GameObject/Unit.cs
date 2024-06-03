@@ -23,7 +23,7 @@ public class Unit : GameObjectController
     private float attackDistance = default;
     private Sprite unitIcon = null;
 
-    private void OnEnable()
+    private void Start()
     {
         if (navMeshAgent == null)
         {
@@ -54,6 +54,8 @@ public class Unit : GameObjectController
     {
         navMeshAgent.speed = speed; //유닛의 속도
         navMeshAgent.SetDestination(pos); //유닛의 목적지를 설정함
+        Debug.Log("이동");
+        Debug.Log(pos);
     }
 
     public override void SelectUnit()

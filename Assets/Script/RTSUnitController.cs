@@ -78,9 +78,9 @@ public class RTSUnitController : MonoBehaviour
     /// </summary>
     public void DeselectAll()
     {
-        for(int i = 0; i < selectedObjectList.Count; i++) //selectedUnitList의 길이 만큼 반복
+        for(int i = 0; i < selectedObjectList.Count; i++) //selectedUnitList의 길이 만큼 반복`+`
         {
-            selectedObjectList[i].DeselectUnit(); //i번째의 유닛을 선택 해제 시킴
+            selectedObjectList[i].DeselectUnit(); //i번째의 유닛을 선택 해제 시킴 
         }
 
         selectedObjectList.Clear(); //리스트의 모든 요소를 제거

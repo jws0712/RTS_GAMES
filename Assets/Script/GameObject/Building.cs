@@ -10,21 +10,23 @@ public class Building : GameObjectController
     [SerializeField] private GameObject buildingUiPenal = null;
     [SerializeField] private Transform buildingSpawnPos = null;
     [SerializeField] private Transform unitPos = null;
-    [SerializeField] private Sprite OriginIcon = null;
+    //[SerializeField] private Sprite OriginIcon = null;
     //[SerializeField] private float maxHp = default;
 
     [Header("BuildingUI")]
     [SerializeField] private Slider timeSlider = null;
     public GameObject[] unitSpawnIcon = null;
-    public List<GameObject> spawnUnitList = new List<GameObject>(maxArraySize);
+    //public Queue<GameObject> unitSpawnQueue = new Queue<GameObject>();
+    public List<GameObject> unitSpawnList = new List<GameObject>();
+
 
     //private variable
-    private const int maxArraySize = 5;
+    //private const int maxArraySize = 5;
     private float unitSpawnTime = default;
     private float time = 0;
     private bool isSpawn = false;
 
-    public int MaxArraySize { get { return maxArraySize; } }
+    //public int MaxArraySize { get { return maxArraySize; } }
 
     /// <summary>
     /// 유닛을 선택할때 실행되는 함수
@@ -51,12 +53,14 @@ public class Building : GameObjectController
     /// <param name="data">소환할 유닛을 데이터</param>
     public void AddSpawnUnit(GameObject spawnUnit, UnitData data)
     {
-        if (spawnUnitList.Count < maxArraySize)
+        if (unitSpawnList.Count < 5)
         {
-            spawnUnitList.Add(spawnUnit);
+            unitSpawnList.Add(spawnUnit);
+
+            StartCoroutine(Co_UnitSpawnLogic(spawnUnit, data));
         }
 
-        StartCoroutine(Co_UnitSpawnLogic(spawnUnit, data));
+        
     }
 
     /// <summary>
@@ -67,9 +71,9 @@ public class Building : GameObjectController
     /// <returns></returns>
     private IEnumerator Co_UnitSpawnLogic(GameObject spawnUnit, UnitData data)
     {
-        while (spawnUnitList.Count != 0) //spawnUnitList가 전부 빌때까지 돔
+        while (unitSpawnList.Contains(spawnUnit)) //spawnUnitList가 전부 빌때까지 돔
         {
-            if (spawnUnitList[0] != null && isSpawn == false) //spawnUnitList의 첫 부분이 비어있지 않고 스폰 중이 아닐때
+            if (isSpawn == false) //spawnUnitList의 첫 부분이 비어있지 않고 스폰 중이 아닐때
             {
                 isSpawn = true; //스폰 중
                 unitSpawnTime = data.SpawnTime; //소환할 유닛의 소한시간을 할당시킴
@@ -85,7 +89,8 @@ public class Building : GameObjectController
                         time = 0; //시간 초기화
                         timeSlider.value = 0; //시간 슬라이더 초기화
 
-                        GameObject instantiatedUnit = Instantiate(spawnUnit, buildingSpawnPos.position, Quaternion.identity); //유닛 객체를 할당함
+                        GameObject instantiatedUnit = Instantiate(unitSpawnList[0], buildingSpawnPos.position, Quaternion.identity);
+
                         Unit unit = instantiatedUnit.GetComponent<Unit>(); //유닛 객체에서 유닛 스크립트를 할당함
 
                         if (unit.navMeshAgent == null) //유닛의 네브메시가 비어 있다면 
@@ -95,7 +100,12 @@ public class Building : GameObjectController
 
                         unit.Move(unitPos.position); //소환된 유닛을 설정한 위치로 이동시킴
 
-                        spawnUnitList.RemoveAt(0); //리스트에서 유닛을 뺌
+                        // Change Default Image
+                        //UnitsPanel.instance._data[0].image.sprite = UnitsPanel.instance.dafaultImage;
+
+
+
+                        unitSpawnList.RemoveAt(0);
 
                         isSpawn = false; //스폰 중이 아님
 
@@ -104,15 +114,7 @@ public class Building : GameObjectController
                     yield return null; //한 프래임 쉼
                 }
             }
-            yield return null; //한 프래임 쉼
+            yield return null;
         }
     }
-
-    //public void SetUnitIcon(UnitData data)
-    //{
-    //    for (int i = 0; i < spawnUnitList.Count; i++)
-    //    {
-    //        unitSpawnIcon[i].GetComponent<Image>().sprite = data.UnitIcon;
-    //    }
-    //}
 }

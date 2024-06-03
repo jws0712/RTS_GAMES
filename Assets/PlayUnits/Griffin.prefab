@@ -3246,7 +3246,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.93
+  m_Radius: 0.28
   m_Center: {x: 0, y: 4, z: 0}
 --- !u!195 &6032443229862504918
 NavMeshAgent:
@@ -3257,7 +3257,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 7159196800257377343}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -3285,6 +3285,7 @@ MonoBehaviour:
   unitMarker: {fileID: 2017388636390595223}
   unitUiPanel: {fileID: 5615094426505866496}
   unitData: {fileID: 11400000, guid: eacffe3df21da9843a6803709d061562, type: 2}
+  navMeshAgent: {fileID: 0}
 --- !u!1 &7179701496891382265
 GameObject:
   m_ObjectHideFlags: 0

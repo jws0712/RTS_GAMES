@@ -1453,7 +1453,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 3502448408947058709}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 1.07
+  m_Radius: 1.5
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -1481,6 +1481,7 @@ MonoBehaviour:
   unitMarker: {fileID: 7068903080060715963}
   unitUiPanel: {fileID: 8557146613564816521}
   unitData: {fileID: 11400000, guid: 7dfb4275f0455644e9647da5b1863306, type: 2}
+  navMeshAgent: {fileID: 0}
 --- !u!1 &3595827110632266878
 GameObject:
   m_ObjectHideFlags: 0
