@@ -10,14 +10,13 @@ public class Building : GameObjectController
     [SerializeField] private GameObject buildingUiPenal = null;
     [SerializeField] private Transform buildingSpawnPos = null;
     [SerializeField] private Transform unitPos = null;
-    //[SerializeField] private Sprite OriginIcon = null;
-    //[SerializeField] private float maxHp = default;
+    [SerializeField] private Sprite OriginIcon = null;
 
     [Header("BuildingUI")]
     [SerializeField] private Slider timeSlider = null;
-    public GameObject[] unitSpawnIcon = null;
-    //public Queue<GameObject> unitSpawnQueue = new Queue<GameObject>();
+    public Image[] unitSpawnIcon = null;
     public List<GameObject> unitSpawnList = new List<GameObject>();
+    public List<Sprite> unitIconList = new List<Sprite>();
 
 
     //private variable
@@ -25,8 +24,6 @@ public class Building : GameObjectController
     private float unitSpawnTime = default;
     private float time = 0;
     private bool isSpawn = false;
-
-    //public int MaxArraySize { get { return maxArraySize; } }
 
     /// <summary>
     /// 유닛을 선택할때 실행되는 함수
@@ -56,6 +53,12 @@ public class Building : GameObjectController
         if (unitSpawnList.Count < 5)
         {
             unitSpawnList.Add(spawnUnit);
+            unitIconList.Add(data.UnitIcon);
+
+            for(int i = 0; i < unitSpawnList.Count; i++)
+            {
+                unitSpawnIcon[i].sprite = unitIconList[i];
+            }
 
             StartCoroutine(Co_UnitSpawnLogic(spawnUnit, data));
         }
@@ -100,14 +103,23 @@ public class Building : GameObjectController
 
                         unit.Move(unitPos.position); //소환된 유닛을 설정한 위치로 이동시킴
 
-                        // Change Default Image
-                        //UnitsPanel.instance._data[0].image.sprite = UnitsPanel.instance.dafaultImage;
-
-
-
                         unitSpawnList.RemoveAt(0);
+                        unitIconList.RemoveAt(0);
 
                         isSpawn = false; //스폰 중이 아님
+
+                        for (int i = 0; i < unitIconList.Count; i++)
+                        {
+                            unitSpawnIcon[i].sprite = unitIconList[i];
+                        }
+                        for(int i = unitIconList.Count; i < 5; i++)
+                        {
+                            if (unitSpawnIcon[i].sprite != OriginIcon)
+                            {
+                                unitSpawnIcon[i].sprite = OriginIcon;
+                            }
+                        }
+                        
 
                         break; //무한 루프 멈춤
                     }

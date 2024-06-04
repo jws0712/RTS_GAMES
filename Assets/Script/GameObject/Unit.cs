@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -23,7 +24,7 @@ public class Unit : GameObjectController
     private float attackDistance = default;
     private Sprite unitIcon = null;
 
-    private void Start()
+    private void OnEnable()
     {
         if (navMeshAgent == null)
         {
