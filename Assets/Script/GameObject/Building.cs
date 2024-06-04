@@ -7,31 +7,45 @@ using UnityEngine.UI;
 public class Building : GameObjectController
 {
     [Header("BuildingInfo")]
-    [SerializeField] private GameObject buildingUiPenal = null;
-    [SerializeField] private Transform buildingSpawnPos = null;
-    [SerializeField] private Transform unitPos = null;
-    [SerializeField] private Sprite OriginIcon = null;
+    [SerializeField] private GameObject UIPenal = null;
+    [SerializeField] private Transform unitSpawnPos = null;
+    [SerializeField] private Transform unitSpawnMovePos = null;
+    [SerializeField] private Sprite defaultUnitIcon = null;
+    [SerializeField] private LayerMask groundLayer = default;
+
+    [Header("Camera")]
+    [SerializeField] private Camera mainCamera = null;
 
     [Header("BuildingUI")]
     [SerializeField] private Slider timeSlider = null;
-    public Image[] unitSpawnIcon = null;
-    public List<GameObject> unitSpawnList = new List<GameObject>();
-    public List<Sprite> unitIconList = new List<Sprite>();
-
+    [SerializeField] private Image[] unitSpawnIcon = null;
 
     //private variable
-    //private const int maxArraySize = 5;
     private float unitSpawnTime = default;
     private float time = 0;
     private bool isSpawn = false;
+    private bool isSelect = false;
+    
+    private List<GameObject> unitSpawnList = new List<GameObject>();
+    private List<Sprite> unitIconList = new List<Sprite>();
+
+    private void Update()
+    {
+        if(isSelect == true)
+        {
+            SetUnitSpawnMovePos();
+
+        }
+    }
 
     /// <summary>
     /// 유닛을 선택할때 실행되는 함수
     /// </summary>
     public override void SelectUnit()
     {
+        isSelect = true;
         base.SelectUnit();
-        buildingUiPenal.SetActive(true);
+        UIPenal.SetActive(true);
     }
 
     /// <summary>
@@ -39,8 +53,9 @@ public class Building : GameObjectController
     /// </summary>
     public override void DeselectUnit()
     {
+        isSelect = false;
         base.DeselectUnit();
-        buildingUiPenal.SetActive(false);
+        UIPenal.SetActive(false);
     }
 
     /// <summary>
@@ -62,8 +77,6 @@ public class Building : GameObjectController
 
             StartCoroutine(Co_UnitSpawnLogic(spawnUnit, data));
         }
-
-        
     }
 
     /// <summary>
@@ -92,7 +105,7 @@ public class Building : GameObjectController
                         time = 0; //시간 초기화
                         timeSlider.value = 0; //시간 슬라이더 초기화
 
-                        GameObject instantiatedUnit = Instantiate(unitSpawnList[0], buildingSpawnPos.position, Quaternion.identity);
+                        GameObject instantiatedUnit = Instantiate(unitSpawnList[0], unitSpawnPos.position, Quaternion.identity);
 
                         Unit unit = instantiatedUnit.GetComponent<Unit>(); //유닛 객체에서 유닛 스크립트를 할당함
 
@@ -101,25 +114,24 @@ public class Building : GameObjectController
                             unit.navMeshAgent = instantiatedUnit.GetComponent<NavMeshAgent>(); //네브메시를 추가함
                         }
 
-                        unit.Move(unitPos.position); //소환된 유닛을 설정한 위치로 이동시킴
+                        unit.Move(unitSpawnMovePos.position); //소환된 유닛을 설정한 위치로 이동시킴
 
                         unitSpawnList.RemoveAt(0);
                         unitIconList.RemoveAt(0);
-
-                        isSpawn = false; //스폰 중이 아님
 
                         for (int i = 0; i < unitIconList.Count; i++)
                         {
                             unitSpawnIcon[i].sprite = unitIconList[i];
                         }
-                        for(int i = unitIconList.Count; i < 5; i++)
+
+                        for(int i = unitIconList.Count; i < unitSpawnIcon.Length; i++)
                         {
-                            if (unitSpawnIcon[i].sprite != OriginIcon)
+                            if (unitSpawnIcon[i].sprite != defaultUnitIcon)
                             {
-                                unitSpawnIcon[i].sprite = OriginIcon;
+                                unitSpawnIcon[i].sprite = defaultUnitIcon;
                             }
                         }
-                        
+                        isSpawn = false; //스폰 중이 아님
 
                         break; //무한 루프 멈춤
                     }
@@ -127,6 +139,19 @@ public class Building : GameObjectController
                 }
             }
             yield return null;
+        }
+    }
+    private void SetUnitSpawnMovePos()
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+            RaycastHit hit;
+            Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+
+            if(Physics.Raycast(ray, out hit, Mathf.Infinity, groundLayer))
+            {
+                unitSpawnMovePos.position = hit.point;
+            }
         }
     }
 }

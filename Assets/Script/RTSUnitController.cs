@@ -14,7 +14,6 @@ public class RTSUnitController : MonoBehaviour
     private void Awake()
     {
         selectedObjectList = new List<GameObjectController>(); //객체 리스트 생성
-        //UnitList = unitSpawner.SpawnUnits(); //UnitList에 SpawnUnits에서 만들어진 유닛을 추가해줌
     }
 
     private void Update()
@@ -105,4 +104,5 @@ public class RTSUnitController : MonoBehaviour
 
         selectedObjectList.Remove(newObject); //selectedUnitList리스트에서 유닛을 뺌
     }
+
 }

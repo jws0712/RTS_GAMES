@@ -70,14 +70,5 @@ public class UIController : MonoBehaviour
     private void SpawnUnit(GameObject gameObject, UnitData data)
     {
         building.AddSpawnUnit(gameObject, data);
-        //foreach(var panel in UnitsPanel.instance._data)
-        //{
-        //    if(!panel.isUsing)
-        //    {
-        //        panel.isUsing = true;
-        //        panel.image.sprite = data.UnitIcon;
-        //        break;
-        //    }
-        //}
     }
 }

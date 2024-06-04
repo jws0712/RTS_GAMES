@@ -397,11 +397,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 569154435}
   m_CullTransparentMesh: 1
---- !u!4 &627984232 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 9033552107263429853, guid: 4b4ba2c9a1bba1e48ba094924781c677, type: 3}
-  m_PrefabInstance: {fileID: 1215713073}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &654152514
 GameObject:
   m_ObjectHideFlags: 0
@@ -889,63 +884,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1198528924}
   m_CullTransparentMesh: 1
---- !u!1001 &1215713073
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 2102315963}
-    m_Modifications:
-    - target: {fileID: 1685464362848801084, guid: 4b4ba2c9a1bba1e48ba094924781c677, type: 3}
-      propertyPath: m_Name
-      value: Mineral
-      objectReference: {fileID: 0}
-    - target: {fileID: 9033552107263429853, guid: 4b4ba2c9a1bba1e48ba094924781c677, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -73.101326
-      objectReference: {fileID: 0}
-    - target: {fileID: 9033552107263429853, guid: 4b4ba2c9a1bba1e48ba094924781c677, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 100.78049
-      objectReference: {fileID: 0}
-    - target: {fileID: 9033552107263429853, guid: 4b4ba2c9a1bba1e48ba094924781c677, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 89.599
-      objectReference: {fileID: 0}
-    - target: {fileID: 9033552107263429853, guid: 4b4ba2c9a1bba1e48ba094924781c677, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.92387956
-      objectReference: {fileID: 0}
-    - target: {fileID: 9033552107263429853, guid: 4b4ba2c9a1bba1e48ba094924781c677, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9033552107263429853, guid: 4b4ba2c9a1bba1e48ba094924781c677, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.38268343
-      objectReference: {fileID: 0}
-    - target: {fileID: 9033552107263429853, guid: 4b4ba2c9a1bba1e48ba094924781c677, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9033552107263429853, guid: 4b4ba2c9a1bba1e48ba094924781c677, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9033552107263429853, guid: 4b4ba2c9a1bba1e48ba094924781c677, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 45
-      objectReference: {fileID: 0}
-    - target: {fileID: 9033552107263429853, guid: 4b4ba2c9a1bba1e48ba094924781c677, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 4b4ba2c9a1bba1e48ba094924781c677, type: 3}
 --- !u!1 &1235816372
 GameObject:
   m_ObjectHideFlags: 0
@@ -1245,38 +1183,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2102315962
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2102315963}
-  m_Layer: 0
-  m_Name: Minerals
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2102315963
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2102315962}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 28.381325, y: -100.78049, z: -132.50899}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 627984232}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2139411194
@@ -3916,9 +3822,9 @@ GameObject:
   - component: {fileID: 7426460764823329479}
   - component: {fileID: 7426460764822559463}
   - component: {fileID: 7426460764821428263}
-  - component: {fileID: 7796955896354882720}
   - component: {fileID: 4777360763829339638}
   - component: {fileID: 258200834382425984}
+  - component: {fileID: 7796955896354882720}
   m_Layer: 6
   m_Name: Commender
   m_TagString: Commender
@@ -4077,10 +3983,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitMarker: {fileID: 919278836399039197}
-  buildingUiPenal: {fileID: 8575695754021698181}
-  buildingSpawnPos: {fileID: 2259630973885922042}
-  unitPos: {fileID: 7173718230928980997}
-  OriginIcon: {fileID: 21300000, guid: e4dbf1c9055c8c34ab1684165f0e6f2d, type: 3}
+  UIPenal: {fileID: 8575695754021698181}
+  unitSpawnPos: {fileID: 2259630973885922042}
+  unitSpawnMovePos: {fileID: 7173718230928980997}
+  defaultUnitIcon: {fileID: 21300000, guid: e4dbf1c9055c8c34ab1684165f0e6f2d, type: 3}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  mainCamera: {fileID: 963194227}
   timeSlider: {fileID: 577221363942404978}
   unitSpawnIcon:
   - {fileID: 7980266156406646746}
@@ -4088,8 +3998,6 @@ MonoBehaviour:
   - {fileID: 1301009363005489758}
   - {fileID: 5592563059777946889}
   - {fileID: 1815063468224882114}
-  unitSpawnList: []
-  unitIconList: []
 --- !u!114 &7835467413289182276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4541,7 +4449,6 @@ SceneRoots:
   - {fileID: 2139411195}
   - {fileID: 537392315}
   - {fileID: 705507995}
-  - {fileID: 2102315963}
   - {fileID: 7426460764823329479}
   - {fileID: 2034214765}
   - {fileID: 1100701513}
